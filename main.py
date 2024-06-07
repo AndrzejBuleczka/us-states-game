@@ -1,14 +1,9 @@
 import pandas
 data = pandas.read_csv("2018_Central_Park_Squirrel_Census_-_Squirrel_Data_20240607.csv")
 
-gray_squirrels = data[data["Primary Fur Color"] == "Gray"]
-gray_squirrels_count = len(gray_squirrels["Primary Fur Color"])
-
-red_squirrels = data[data["Primary Fur Color"] == "Cinnamon"]
-red_squirrels_count = len(red_squirrels["Primary Fur Color"])
-
-black_squirrels = data[data["Primary Fur Color"] == "Black"]
-black_squirrels_count = len(black_squirrels["Primary Fur Color"])
+gray_squirrels_count = len(data[data["Primary Fur Color"] == "Gray"])
+red_squirrels_count = len(data[data["Primary Fur Color"] == "Cinnamon"])
+black_squirrels_count = len(data[data["Primary Fur Color"] == "Black"])
 
 
 df = pandas.DataFrame(
