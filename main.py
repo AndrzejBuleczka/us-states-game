@@ -13,8 +13,27 @@ all_states = data.state.to_list()
 guessed_states = []
 score = 0
 
-answer_state = screen.textinput(title="Guess the State", prompt="What's another state's name?").title()
-if answer_state in all_states:
-    guessed_states.append(answer_state)
-    score += 1
+while len(guessed_states) < 50:
+    answer_state = screen.textinput(title=f"{score}/50 States Correct", prompt="What's another state's name?").title()
+    if answer_state in all_states:
+        guessed_states.append(answer_state)
+        t = turtle.Turtle()
+        t.hideturtle()
+        t.penup()
+        state_data = data[data.state == answer_state]
+        t.goto(int(state_data.x), int(state_data.y))
+        t.write(answer_state)
+        score += 1
 
+# while len(guessed_states) < 50:
+#     answer_state = screen.textinput(title=f"{score}/50 States Correct", prompt="What's another state's name?").title()
+#     if answer_state == "Exit":
+#         break
+#     if answer_state in all_states:
+#         guessed_states.append(answer_state)
+#         t = turtle.Turtle()
+#         t.hideturtle()
+#         t.penup()
+#         state_data = data[data.state == answer_state]
+#         t.goto(int(state_data.x), int(state_data.y))
+#         t.write(answer_state)
